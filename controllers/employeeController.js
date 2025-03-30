@@ -3,12 +3,13 @@ const { Employee } = require("../models");
 // Create a new employee
 exports.createEmployee = async (req, res) => {
     try {
-        const { name, position, salary } = req.body;
+        const { name, position, salary, email } = req.body;
         const employee = await Employee.create({
             name,
-            email,
             position,
             salary,
+            email,
+
         });
         res.status(201).json(employee);
     } catch (error) {

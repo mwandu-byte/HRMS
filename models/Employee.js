@@ -12,14 +12,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.FLOAT,
             allowNull: false,
         },
-        email: {       
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
-                isEmail: { msg: "Email must be valid" },
+              isEmail: {
+                msg: "Email must be a valid email address",
+              },
             },
-        },
+          },
     });
 
     return Employee;

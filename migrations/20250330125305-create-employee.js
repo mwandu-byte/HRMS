@@ -27,10 +27,7 @@ module.exports = {
       position:{
         type:Sequelize.STRING
       },
-      salary:{
-        type:Sequelize.FLOAT
-
-      },
+      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

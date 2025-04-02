@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Payroll.belongsTo(models.Employee, { foreignKey: "employeeId" });
+      Payroll.belongsTo(models.Employee, { foreignKey: "employeeId", as: "employees" });
 
-      models.Employee.hasMany(Payroll, { foreignKey: "employeeId" });
+      // models.Employee.hasMany(Payroll, { foreignKey: "employeeId" });
     }
   }
   Payroll.init(

@@ -20,6 +20,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "employeeId",
         as: "nextOfKin", // Alias for the relation
       });
+
+      Employee.hasMany(models.Payroll, {
+        foreignKey: "employeeId",
+        as: "payroll", // Alias for the relation
+      });
     }
   }
 

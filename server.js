@@ -10,6 +10,7 @@ const leaveRoutes = require("./routes/leaveRoutes");
 const nextOfKinRoutes = require("./routes/nextOfKinRoutes");
 const attendanceRoutes = require("./routes/attendanceRoutes");
 const performanceRoutes = require("./routes/performanceRoutes");
+const menuRoutes = require("./routes/menuRoutes");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use("/api/leaves", leaveRoutes);
 app.use("/api/nextOfKins", nextOfKinRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/performance", performanceRoutes);
+app.use("/api/menus", menuRoutes);
 
 //start server
 

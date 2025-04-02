@@ -4,6 +4,8 @@ const { Employee, Payroll, Department, sequelize } = require("../models");
 exports.createEmployee = async (req, res) => {
     const t = await sequelize.transaction(); // Start Transaction
     try {
+        console.log('employee data --->', req.body);
+        
         const { first_name, last_name, dob, contact, email, position, departmentId, basicSalary, bonuses, deductions } = req.body;
 
         // Create Employee
@@ -17,7 +19,7 @@ exports.createEmployee = async (req, res) => {
         // Create Payroll Record
         await Payroll.create({
             employeeId: employee.id,
-            basicSalary,
+            basicSalary:basicSalary,
             bonuses: bonuses || 0,
             deductions: deductions || 0,
             netPay

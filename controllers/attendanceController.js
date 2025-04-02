@@ -1,9 +1,17 @@
-const { Attendance, Employee } = require("../models");
+const { Attendance, Employee, sequelize} = require("../models");
 
 // Create new attendance record
 exports.createAttendance = async (req, res) => {
+    
+      const t = await sequelize.transaction();
     try {
         const { employeeId, status, reason } = req.body;
+
+         // Check if Employee exists
+    const employee = await Employee.findByPk(employeeId);
+    if (!employee) {
+      return res.status(404).json({ message: "Employee not found" });
+    }
 
         // Create a new attendance record
         const attendance = await Attendance.create({
@@ -11,10 +19,14 @@ exports.createAttendance = async (req, res) => {
             date: new Date(),
             status,
             reason,
-        });
-
+        },
+        { transaction: t }
+    );
+ 
+    await t.commit();
         res.status(201).json(attendance);
     } catch (error) {
+        await t.rollback();
         console.error(error);
         res.status(500).json({ error: error.message });
     }

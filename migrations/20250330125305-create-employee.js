@@ -9,6 +9,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      departmentId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        reference: {
+          Model: 'Departrment',
+          key: 'id'
+
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       first_name: {
         type: Sequelize.STRING
       },
@@ -22,7 +33,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       position:{
         type:Sequelize.STRING

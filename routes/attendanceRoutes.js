@@ -10,7 +10,7 @@ router.post("/", attendanceController.createAttendance);
 router.get("/", attendanceController.getAllAttendance);
 
 // Get attendance by employee
-router.get("/employee/:id", attendanceController.getAttendanceByEmployee);
+// router.get("/employee/:id", attendanceController.getAttendanceByEmployee);
 
 // Update attendance record
 router.put("/:id", attendanceController.updateAttendance);

@@ -1,4 +1,4 @@
-const { NextOfKin, Employee } = require("../models");
+const { NextOfKin, Employee ,sequelize} = require("../models");
 
 // Create or Update Next of Kin for an employee
 exports.createOrUpdateNextOfKin = async (req, res) => {
